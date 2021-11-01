@@ -22,17 +22,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTopMovies();
-    this.getTopTvs();
-    this.getPopularMovies();
-    this.getPopularTvs();
-    this.getComingSoonMovies();
-    this.getInTheatersMovies();
+    // this.getTopTvs();
+    // this.getPopularMovies();
+    // this.getPopularTvs();
+    // this.getComingSoonMovies();
+    // this.getInTheatersMovies();
   }
 
   getTopMovies() {
     this.sharedService.getTopMovies().subscribe(response => {
       if (response) {
-        this.topMovies = response;
+        this.topMovies = response.items;
       }
     });
   }

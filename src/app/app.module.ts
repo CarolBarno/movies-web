@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryMoviesComponent } from './components/category-movies/category-movies.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryMoviesComponent
+    CategoryMoviesComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <div>
         <span>
             <strong> MOVIES</strong>
@@ -26,11 +26,14 @@
     </div>
 
     <div class="row">
-        <div *ngFor='let movie of topMovies' style="padding: 0.1em;" class="col-md-4 col-sm-6 col-12">
-            <img class="card-img-top" height="200" [src]="" [alt]="movie.title">
-
+        <div *ngIf='topMovies'>
+            <p>Top 250 Movies</p>
+            <div *ngFor='let movie of topMovies'>
+                <a routerLink='/details/{{movie.title}}'>
+                    <img class="card-img-top" height="200" [src]="movie.image" [alt]="movie.title">
+                </a>
+            </div>
         </div>
-
     </div>
 
 </div>
