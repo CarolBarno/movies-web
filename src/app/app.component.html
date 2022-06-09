@@ -1,0 +1,39 @@
+<div class="container">
+    <div>
+        <span>
+            <strong> MOVIES</strong>
+        </span>
+        <div>
+            <span *ngIf="!showSearchForm">
+                <button class="expandSearch" (click)="expandSearch()" title="search movie">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+            <span *ngIf="showSearchForm">
+                <form #searchForm='ngForm' novalidate (ngSubmit)='searchProduct(searchForm)'
+                    class="form-inline custom-search">
+                    <div class="form-group">
+                        <input #search='ngModel' pattern="^[a-zA-Z0-9_ ]*$" minlength="3"
+                            [class.is-invalid]='search?.errors?.required && !(search.valid || search.pristine)  || search?.errors?.pattern || search?.errors?.minlength'
+                            class="form-control mr-sm-2" [(ngModel)]='searchValue' name="searchValue" required
+                            type="search" placeholder="Search movie" aria-label="Search">
+                    </div>
+                    <button [disabled]='!searchForm.valid' class="btn btn-sm btn-outline-light my-2 my-sm-0 search-btn"
+                        type="submit">Search</button>
+                </form>
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div *ngIf='topMovies'>
+            <p>Top 250 Movies</p>
+            <div *ngFor='let movie of topMovies'>
+                <a routerLink='/details/{{movie.title}}'>
+                    <img class="card-img-top" height="200" [src]="movie.image" [alt]="movie.title">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
